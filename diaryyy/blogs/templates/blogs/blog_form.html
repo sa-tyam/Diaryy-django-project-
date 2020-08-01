@@ -1,0 +1,10 @@
+{% extends 'blogs/blog_base.html' %}
+{% load bootstrap4 %}
+{% block blog_content %}
+    <h4>Today's events</h4>
+    <form class="blog-form" id="blog-form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" class="btn btn-simple btn-success" value="Post">
+    </form>
+{% endblock %}

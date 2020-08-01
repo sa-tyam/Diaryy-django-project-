@@ -1,0 +1,23 @@
+<div class="blog media">
+    <div class="blog-image-div">
+        <img class="blog-image" src='{{blog.blog_image.url}}' alt="no image for this blog" width="50%">
+    </div>
+    <div class="">
+        <p>{{blog.message_html|safe}}</p>
+    </div>
+    <div class="media-body">
+            <span class="username">
+                <p><a href="{% url 'blogs:for_user' username=blog.user.username %}">@{{blog.user.username}}</a></p>
+            </span>
+            <time class="time">
+                <p><a href="{% url 'blogs:single' username=blog.user.username pk=blog.pk %}">{{blog.created_at}}</a></p>
+            </time>
+        <div class="media-footer">
+            {% if user.is_authenticated and blog.user == user and not hide_delete %}
+                <p><a href="{% url 'blogs:delete' pk=blog.pk %}" title="delete" class="btn btn-danger">
+                    <span class="text-danger icon-label"></span>Delete
+                </a></p>
+            {% endif %}
+        </div>
+    </div>
+</div>

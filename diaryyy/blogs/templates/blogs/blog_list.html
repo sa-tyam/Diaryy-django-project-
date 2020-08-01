@@ -1,0 +1,8 @@
+{% extends 'blogs/blog_base.html' %}
+{% block blog_content %}
+    <div class="col-md-8">
+        {% for blog in blog_list %}
+            {% include 'blogs/_blog.html' %}
+        {% endfor %}
+    </div>
+{% endblock %}
