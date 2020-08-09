@@ -1,0 +1,30 @@
+.container{
+    width:25%;
+    margin-top: 5%;
+    background-color: #f7ecfe;
+    padding-bottom: 5%;
+    padding-left: 2%;
+    padding-top: 2%;
+    padding-right: 2%;
+    font-family: 'Ubuntu', sans-serif;
+    border-radius: 15px;
+}
+
+.btn-primary{
+    background-color: #850ad6;
+    width: 70%;
+    border-radius: 20px;
+    border-color: #850ad6;
+    font-size: 20px;
+    margin-left: 15%;
+    margin-right: 15%;
+    
+}
+
+h1{
+    text-align: center;
+}
+
+.form-group {
+    border-radius: 20px;
+}

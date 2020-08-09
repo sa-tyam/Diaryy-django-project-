@@ -1,12 +1,28 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+{% load static %}
 {% load bootstrap4 %}
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Bloggg</title>
+        <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+        crossorigin="anonymous">
+
+		<link rel="stylesheet" href="{% static 'CSS/login.css' %}" />
+		
+        
+    </head>
 
 {% block content %}
 	<div class="container">
+
+	    <h1>Login Here</h1>
 		<form class="signup-form" method="POST">
 			{% csrf_token %}
 			{% bootstrap_form form %}
-			<input type="submit" class="btn btn-success btn-large" value="Log In">
+			<input type="submit" class="btn btn-primary" value="Log In">
 		</form>
 	</div>
 {% endblock %}
