@@ -3,7 +3,7 @@
 from django.db import models
 from django.contrib import auth
 
-class User (auth.models.User, auth.models.PermissionsMixin):
+class Signup(models.Model):
 
-	def __str__(self):
-		return "@{}".format(self.username)
+    username = models.CharField(max_length=100)
+    password = models.CharField(max_length=100)
