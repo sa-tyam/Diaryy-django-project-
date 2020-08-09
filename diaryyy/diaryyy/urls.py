@@ -21,7 +21,8 @@ from . import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.IndexView.as_view(), name='home'),
+    path('index/', views.IndexView.as_view(), name='index'),
+    path('', views.Home, name='home'),
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('blogs/', include('blogs.urls', namespace='blogs')),
