@@ -10,6 +10,7 @@ urlpatterns = [
     path('', views.BlogList.as_view(), name='all'),
     path('new/', views.BlogCreateView.as_view(), name='new'),
     url(r"by/(?P<username>[-\w]+)/$",views.UserBlog.as_view(),name="for_user"),
+    url(r"by/random/(?P<username>[-\w]+)/$",views.RandomBlogList.as_view(),name="random_blog_list"),
     url(r"by/(?P<username>[-\w]+)/(?P<pk>\d+)/$",views.BlogDetailView.as_view(),name="single"),
     url(r"delete/(?P<pk>\d+)/$",views.BlogDeleteView.as_view(),name="delete"),
 ]

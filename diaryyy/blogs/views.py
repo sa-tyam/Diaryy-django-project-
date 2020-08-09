@@ -18,6 +18,25 @@ class BlogList(SelectRelatedMixin, generic.ListView):
     model = models.Blog
     select_related = ('user',)
 
+class RandomBlogList (generic.ListView):
+    model = models.Blog
+    template_name = 'blogs/user_random_blog.html'
+
+    def get_queryset(self):
+        try:
+            self.blog_user = User.objects.prefetch_related('blogs').get(username__iexact=self.kwargs.get('username'))
+        except User.DoesNotExist:
+            raise Http404
+        else:
+            return self.blog_user.blogs.order_by('?')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['blog_user'] = self.blog_user
+        return context
+
+
+
 class UserBlog(generic.ListView):
     model = models.Blog
     template_name='blogs/user_blog_list.html'
