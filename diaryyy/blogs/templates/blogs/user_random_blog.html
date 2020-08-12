@@ -2,18 +2,9 @@
 
 {% block blog_content %}
 
-    <style>
-
-        .col {
-            width: 29%;
-            float: left;
-            padding: 50px 2%;
-        }
-
-    </style>
-
+    <div class="row" style="margin: 50px 0">
         {% with block=blog_list|to_blocks_3 %}
-        <div id="col-1" class="col">
+        <div id="col-1" class="col-md-4">
             {% for blog in block.0 %}
                 <div class="blog-image-div">
                     <img class="blog-image" src='{{blog.blog_image.url}}' alt="no image for this blog" width="100%">
@@ -23,7 +14,7 @@
                 </div>
             {% endfor %}
         </div>
-        <div id="col-2" class="col">
+        <div id="col-2" class="col-md-4">
             {% for blog in block.1 %}
                 <div class="blog-image-div">
                     <img class="blog-image" src='{{blog.blog_image.url}}' alt="no image for this blog" width="100%">
@@ -33,7 +24,7 @@
                 </div>
             {% endfor %}
         </div>
-        <div id="col-3" class="col">
+        <div id="col-3" class="col-md-4">
             {% for blog in block.2 %}
                 <div class="blog-image-div">
                     <img class="blog-image" src='{{blog.blog_image.url}}' alt="no image for this blog" width="100%">
@@ -45,6 +36,7 @@
         </div>
 
         {% endwith %}
+    </div>
 
 {% endblock %}
 
