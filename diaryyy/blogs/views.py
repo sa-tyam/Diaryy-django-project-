@@ -18,10 +18,6 @@ from django.template.defaultfilters import register
 
 @register.filter
 def to_blocks_3(value):
-    print(value)
-    print()
-    for i in value:
-        print(i)
     ans = [[], [], []]
     for i in range(len(value)):
         ans[i%3].append(value[i])
