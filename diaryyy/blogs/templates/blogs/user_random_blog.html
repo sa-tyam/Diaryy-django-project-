@@ -1,14 +1,22 @@
 {% extends 'blogs/blog_base.html' %}
 
 {% block blog_content %}
-    <div class="col-md-8">
-        {% for blog in blog_list %}
-        <div class="blog-image-div">
-            <img class="blog-image" src='{{blog.blog_image.url}}' alt="no image for this blog" width="50%">
-            <time class="time">
-                <p><a href="{% url 'blogs:single' username=blog.user.username pk=blog.pk %}">{{blog.created_at}}</a></p>
-            </time>
+
+    <br>
+
+    <div class="container">
+        <div class="row">
+            {% for blog in blog_list %}
+            <div class=" col-lg-4 col-xs-4 col-md-6">
+                <img class="blog-image" src='{{blog.blog_image.url}}' alt="no image for this blog" width="100%">
+                <time class="time">
+                    <p><a href="{% url 'blogs:single' username=blog.user.username pk=blog.pk %}" class="date" >{{blog.created_at}}</a></p>
+                </time>
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
+
 {% endblock %}
+
+
