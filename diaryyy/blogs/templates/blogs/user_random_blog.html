@@ -1,14 +1,49 @@
 {% extends 'blogs/blog_base.html' %}
 
 {% block blog_content %}
-    <div class="col-md-8">
-        {% for blog in blog_list %}
-        <div class="blog-image-div">
-            <img class="blog-image" src='{{blog.blog_image.url}}' alt="no image for this blog" width="50%">
-            <time class="time">
-                <p><a href="{% url 'blogs:single' username=blog.user.username pk=blog.pk %}">{{blog.created_at}}</a></p>
-            </time>
+
+    <style>
+
+        .col {
+            width: 29%;
+            float: left;
+            padding: 50px 2%;
+        }
+
+    </style>
+
+        {% with block=blog_list|to_blocks_3 %}
+        <div id="col-1" class="col">
+            {% for blog in block.0 %}
+                <div class="blog-image-div">
+                    <img class="blog-image" src='{{blog.blog_image.url}}' alt="no image for this blog" width="100%">
+                    <time class="time">
+                        <p><a href="{% url 'blogs:single' username=blog.user.username pk=blog.pk %}">{{blog.created_at}}</a></p>
+                    </time>
+                </div>
+            {% endfor %}
         </div>
-        {% endfor %}
-    </div>
+        <div id="col-2" class="col">
+            {% for blog in block.1 %}
+                <div class="blog-image-div">
+                    <img class="blog-image" src='{{blog.blog_image.url}}' alt="no image for this blog" width="100%">
+                    <time class="time">
+                        <p><a href="{% url 'blogs:single' username=blog.user.username pk=blog.pk %}">{{blog.created_at}}</a></p>
+                    </time>
+                </div>
+            {% endfor %}
+        </div>
+        <div id="col-3" class="col">
+            {% for blog in block.2 %}
+                <div class="blog-image-div">
+                    <img class="blog-image" src='{{blog.blog_image.url}}' alt="no image for this blog" width="100%">
+                    <time class="time">
+                        <p><a href="{% url 'blogs:single' username=blog.user.username pk=blog.pk %}">{{blog.created_at}}</a></p>
+                    </time>
+                </div>
+            {% endfor %}
+        </div>
+
+        {% endwith %}
+
 {% endblock %}
